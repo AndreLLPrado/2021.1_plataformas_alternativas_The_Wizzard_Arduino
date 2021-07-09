@@ -1,0 +1,39 @@
+void setup(){
+  Serial.begin(9600); //INICIALIZAÇÃO DA SERIAL
+   pinMode(A0, INPUT); //DEFINE O PINO COMO ENTRADA
+   pinMode(A1, INPUT); //DEFINE O PINO COMO ENTRADA
+   pinMode(A2, INPUT); //DEFINE O PINO COMO ENTRADA
+   pinMode(A3, INPUT); //DEFINE O PINO COMO ENTRADA
+}
+
+int bt[4];
+void loop(){
+  //Serial.println(analogRead(A3));
+  if(analogRead(A0) > 1010){
+    bt[0] = 1;
+  }else{
+    bt[0] = 0;
+  }
+  if(analogRead(A1) > 1010){
+      bt[1] = 1;
+  }else{
+    bt[1] = 0;
+  }
+  if(analogRead(A2) > 1010){
+      bt[2] = 1;
+  }else{
+    bt[2] = 0;
+  }
+  if(analogRead(A3) > 1010){
+      bt[3] = 1;
+  }else{
+    bt[3] = 0;
+  }
+  Serial.print(bt[0]);
+  Serial.print(",");
+  Serial.print(bt[1]);
+  Serial.print(",");
+  Serial.print(bt[2]);
+  Serial.print(",");
+  Serial.println(bt[3]);
+ }
